@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Cancel</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type ="text/css">
+   
+ label{ 
+	   display: block;
+           width: 50%;
+           height: 10%;
+	    margin-bottom: 10px;
+       border-style: hidden;
+	   font-size: 20px;
+	   font-weight: bolder;
+     background-color: rgba(242, 242, 242, 0.5);    
+       }    
+        
+       input{ height:40% ;
+           width:40% } 
+
+
+
+
+
+
+input[type=text]{
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #336600;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=reset] {
+  width: 10%;
+  background-color: #003300;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgba(242, 242, 242, 0.5);
+  color: #003300;
+  border: 1px solid #003300;
+}
+input[type=submit] {
+  width: 10%;
+  background-color:#003300;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=reset]:hover {
+  background-color: rgba(242, 242, 242, 0.5);
+  color: #003300;
+  border: 1px solid #003300;
+}
+   
+ 
+.this {
+ background-image: url(fl.jpg);
+
+            background-clip: padding-box;
+          background-position: right;
+           background-repeat: no-repeat;
+           background-size: 1005px 1000px;;
+           background-origin: border-box;
+  border-radius: 5px;
+  padding: 20px;
+  
+}
+ 
+.this1 {
+background-color: white;
+
+ background-image: url(gl.JPG);
+          background-position: top left;
+           background-repeat: no-repeat;
+           background-size: 400px 400px;;
+          border-radius: 5px;
+             padding: 20px;
+  
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        
+function check_data() {
+    booking_id = document.getElementById("booking_id").value;
+    
+    $.ajax({
+			   type: "GET",
+			   data: '',
+			   url: "connection.php?type=cancel_summary&booking_id="+booking_id,
+			   success: function(data) {
+				  		if(data == "OK")
+                        {
+                            check = confirm("Are you sure ?!");
+                            if(check)
+                                document.form.submit();
+                        }
+
+                    else
+                        {
+                            alert(data);
+                        }
+				},
+			   error: function() {alert("error");}
+			});
+}
+</script>
+</head>
+
+<body>
+
+
+<div class="navbar">
+  <a href="Beauty.html">Home</a>
+<a href="Gallery.php">Gallary</a>
+<a href="contactUs.html">Contact Us</a>
+<a href="Booking.php?item_id=IT&category=non">Booking</a>
+<a href="Cancel.html">Cancel</a>
+<a href="Print.html">Print</a>
+<a href="AboutUs.html">About Us</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+	<a href="Beauty.html"><img src= "home.png"   width="60" height="60" alt="home" style="text-align: center;"/></a>
+<a href="Gallery.php"><img   src="art.png"   width="60" height="60" alt="art"/></a> 
+<a href="contactUs.html"><img   src="contact.png"   width="60" height="60" alt="contact"/></a>
+<a href="Booking.php?item_id=IT&category=non"><img   src="booking.png" width="60" height="60"   alt="booking"/></a>
+<a href="Cancel.html"><img   src="cancel.png"   width="60" height="60" alt="cancel"/></a> 
+<a href="Print.html"><img   src="Print.png"   width="60" height="60" alt="Print"/></a>
+<a href="AboutUs.html"><img   src="About.png" width="60" height="60"   alt="AboutUs"/></a>
+
+    </div>
+  </div> 
+
+</div>
+
+<div class="image">
+  <p><img src="BB.jpg"   alt="logo" height="400" width="400" /></p>
+</div>
+
+<div class="this1">
+<h1 class="word">Cancel</h1>
+
+<div class="this">
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+
+    <form id="form" name="form" action="Cancel_summary.php" method="POST" onsubmit="javascript: check_data(); return false;">
+	<h2 class="word" style="text-shadow: 2px 2px 4px #ccffcc; text-align: left;" >Please enter your booking number:</h2>
+
+<input type="number" id="booking_id" name="booking_id"  placeholder="110" required>
+ <p>
+    <input type="submit" value="Cancel">
+    <input type="reset" value="Clear">
+   </p>
+</form>
+
+
+
+<br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+</form>
+</div>
+</div>
+<footer>
+<div class="navbar">
+<a ><strong> &nbsp; Beauty &copy; &nbsp;</strong> </a>
+<a href="http://www.facebook.com"><img   src= "facebook.png"   width="20" height="20" alt="FaceBook"/></a>
+<a href="http://www.instagram.com"><img   src= "instagram.png"   width="20" height="20" alt="instgram"/></a>
+<a href="http://www.twitter.com"><img   src= "twitter.png"   width="20" height="20" alt="twitter"/></a>
+</div>
+</footer>
+</body>
+
+</html>
